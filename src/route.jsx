@@ -1,10 +1,13 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import App from './App';
 import NotFoundPage from './pages/NotFoundPage';
 import Landingpage from './pages/Landingpage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
+import Chats from './pages/Chats'
+import Groups from './pages/Groups'
 import ProtectedRoute from './components/ProtectedRoute';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
 export default function Route() {
@@ -19,8 +22,24 @@ export default function Route() {
 			),
 			children: [
 				{
-					index: true,
-					element: <Landingpage />,
+					path: '/chats',
+					element: <Chats />,
+					children: [
+						{
+							index: true,
+							element: <Landingpage title='Chats' />,
+						},
+					],
+				},
+				{
+					path: '/groups',
+					element: <Groups />,
+					children: [
+						{
+							index: true,
+							element: <Landingpage title='Groups' />,
+						},
+					],
 				},
 			],
 		},
@@ -33,6 +52,6 @@ export default function Route() {
 			element: <LoginPage />,
 		},
 	]);
-    
-    return <RouterProvider router={route} />;
+
+	return <RouterProvider router={route} />;
 }
