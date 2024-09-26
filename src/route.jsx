@@ -1,16 +1,22 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import NotFoundPage from './pages/NotFoundPage';
 import Landingpage from './pages/Landingpage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 
 export default function Route() {
 	const route = createBrowserRouter([
 		{
 			path: '/',
-			element: <App />,
 			errorElement: <NotFoundPage />,
+			element: (
+				<ProtectedRoute>
+					<App />
+				</ProtectedRoute>
+			),
 			children: [
 				{
 					index: true,
@@ -19,13 +25,14 @@ export default function Route() {
 			],
 		},
 		{
-			path: 'signup',
+			path: '/signup',
 			element: <SignupPage />,
 		},
 		{
-			path: 'login',
+			path: '/login',
 			element: <LoginPage />,
 		},
 	]);
-	return <RouterProvider router={route} />;
+    
+    return <RouterProvider router={route} />;
 }
