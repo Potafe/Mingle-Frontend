@@ -7,6 +7,7 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import Chats from './pages/Chats'
 import Groups from './pages/Groups'
+import Logout from './pages/Logout';
 import ProtectedRoute from './components/ProtectedRoute';
 
 
@@ -51,6 +52,10 @@ export default function Route() {
 			path: '/login',
 			element: <LoginPage />,
 		},
+		{
+			path: '/logout',
+			element: <Logout />
+		}
 	]);
 
 	return <RouterProvider router={route} />;
