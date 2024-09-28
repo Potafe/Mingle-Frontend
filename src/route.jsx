@@ -1,15 +1,14 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import NotFoundPage from './pages/NotFoundPage';
-import Landingpage from './pages/Landingpage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-import Chats from './pages/Chats'
-import Groups from './pages/Groups'
-import Logout from './pages/Logout';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import Chats from './pages/Chats';
+import Groups from './pages/Groups';
+import DefaultPage from './pages/LandingPage';
+import ChatSection from './components/ChatSection';
+import Logout from './pages/Logout';
 
 export default function Route() {
 	const route = createBrowserRouter([
@@ -28,7 +27,11 @@ export default function Route() {
 					children: [
 						{
 							index: true,
-							element: <Landingpage title='Chats' />,
+							element: <DefaultPage title='Chats' />,
+						},
+						{
+							path: '/chats/:friendID',
+							element: <ChatSection />,
 						},
 					],
 				},
@@ -38,9 +41,13 @@ export default function Route() {
 					children: [
 						{
 							index: true,
-							element: <Landingpage title='Groups' />,
+							element: <DefaultPage title='Groups' />,
 						},
 					],
+				},
+				{
+					path: '/logout',
+					element: <Logout />,
 				},
 			],
 		},
@@ -52,10 +59,6 @@ export default function Route() {
 			path: '/login',
 			element: <LoginPage />,
 		},
-		{
-			path: '/logout',
-			element: <Logout />
-		}
 	]);
 
 	return <RouterProvider router={route} />;

@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+
 export default function Groups() {
 	return (
 		<section className='min-h-max w-full flex gap-3'>

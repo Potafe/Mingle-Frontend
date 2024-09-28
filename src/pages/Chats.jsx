@@ -1,6 +1,6 @@
 import { fetchUserByID } from '@/api/users';
 import SearchUsersFeed from '@/components/SearchUserFeed';
-import UserFeed from '@/components/UserFeed';
+import UsersFeed from '@/components/UserFeed';
 import { useToast } from '@/components/ui/useToast';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
@@ -52,7 +52,7 @@ export default function Chats() {
 				{addMode ? (
 					<SearchUsersFeed />
 				) : (
-					<UserFeed
+					<UsersFeed
 						users={userData?.friends}
 						isLoading={isLoading}
 						error={error}

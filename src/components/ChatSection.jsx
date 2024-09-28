@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import MainContentContainer from './MainContentContainer';
 import { useQuery } from '@tanstack/react-query';
-import { fetchConversation } from '@/api/message';
-import { fetchUserByID } from '@/api/user';
+import { fetchConversation } from '@/api/messages';
+import { fetchUserByID } from '@/api/users';
 import SendMessageForm from './forms/SendMessageForm';
 import { useEffect } from 'react';
 import ChatFeed from './ChatFeed';
@@ -38,6 +38,7 @@ export default function ChatSection() {
 			{messagesError && friendError && (
 				<h1 className='text-5xl font-bold text-dark-500'>An error occured</h1>
 			)}
+			
 			{!messagesLoading && !friendLoading && (
 				<>
 					<MainContentHeader
