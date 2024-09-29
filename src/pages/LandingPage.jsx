@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import MainContentContainer from '@/components/MainContentContainer';
+import { MainContentContainer } from '@/components/MainContent';
 
 export default function DefaultPage({ title }) {
 	return (

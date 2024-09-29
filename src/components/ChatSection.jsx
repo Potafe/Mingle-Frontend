@@ -1,16 +1,16 @@
 import { useParams } from 'react-router-dom';
-import MainContentContainer from './MainContentContainer';
 import { useQuery } from '@tanstack/react-query';
 import { fetchConversation } from '@/api/messages';
 import { fetchUserByID } from '@/api/users';
 import SendMessageForm from './forms/SendMessageForm';
 import { useEffect } from 'react';
 import ChatFeed from './ChatFeed';
-import MainContentHeader from './MainContentHeader';
+import MainContentHeader, { MainContentContainer } from './MainContent';
 
 export default function ChatSection() {
 	const { friendID } = useParams();
 	const currentUserID = localStorage.getItem('UserID');
+
 	const {
 		data: messages,
 		isLoading: messagesLoading,
@@ -19,6 +19,7 @@ export default function ChatSection() {
 		queryKey: [`messages_${currentUserID}_${friendID}`],
 		queryFn: () => fetchConversation(currentUserID, friendID),
 	});
+
 	const {
 		data: friendData,
 		isLoading: friendLoading,
@@ -27,30 +28,34 @@ export default function ChatSection() {
 		queryKey: [`user_${friendID}`],
 		queryFn: () => fetchUserByID(friendID),
 	});
+
 	useEffect(() => {
 		window.scrollTo(1000, 0);
 	}, []);
+
 	return (
 		<MainContentContainer>
 			{messagesLoading && friendLoading && (
-				<h1 className='text-5xl font-bold text-dark-500'>Loading...</h1>
+				<h1 className='text-5xl font-bold text-dark-500 p-3'>Loading...</h1>
 			)}
 			{messagesError && friendError && (
 				<h1 className='text-5xl font-bold text-dark-500'>An error occured</h1>
 			)}
-			
-			{!messagesLoading && !friendLoading && (
+			{friendData && messages && (
 				<>
 					<MainContentHeader
 						profile={friendData.profile.url}
 						firstname={friendData.firstname}
 						lastname={friendData.lastname}
+						userID={friendData._id}
 					/>
+
 					<ChatFeed
 						messages={messages}
 						currentUserID={currentUserID}
 						friendData={friendData}
 					/>
+
 					<SendMessageForm />
 				</>
 			)}
