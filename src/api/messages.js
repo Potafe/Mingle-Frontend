@@ -5,12 +5,7 @@ const BASE_API_URL = import.meta.env.VITE_API_URL;
 export const fetchConversation = async (senderID, receiverID) => {
   try {
     const { data } = await axios.get(
-      `${BASE_API_URL}/message/${senderID}/${receiverID}`,
-      {
-        headers: {
-          Authorization: localStorage.getItem("Token"),
-        },
-      }
+      `${BASE_API_URL}/message/${senderID}/${receiverID}`
     );
 
     return data.data;
@@ -19,20 +14,17 @@ export const fetchConversation = async (senderID, receiverID) => {
     throw err;
   }
 };
+
 export const postMessage = async (formData, senderID, receiverID) => {
   try {
     const { data } = await axios.post(
       `${BASE_API_URL}/message/${senderID}/${receiverID}`,
-      formData,
-      {
-        headers: {
-          Authorization: localStorage.getItem("Token"),
-        },
-      }
+      formData
     );
+
     return data;
   } catch (err) {
-    console.error("Error fetching messages", err);
+    console.error("Error posting messages", err);
     throw err;
   }
 };
