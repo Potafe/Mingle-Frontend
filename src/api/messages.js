@@ -28,3 +28,20 @@ export const postMessage = async (formData, senderID, receiverID) => {
     throw err;
   }
 };
+
+export const deleteMessage = async (messageID) => {
+  try {
+    const { data } = await axios.delete(
+      `${BASE_API_URL}/message/${messageID}`,
+      {
+        headers: {
+          Authorization: localStorage.getItem("Token"),
+        },
+      }
+    );
+    return data;
+  } catch (err) {
+    console.error("Error deleting message", err);
+    throw err;
+  }
+};
