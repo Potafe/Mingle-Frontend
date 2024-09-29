@@ -82,7 +82,7 @@ export default function ChatMessage({ message, currentUserID, friendData }) {
 								<MenubarTrigger>
 									<img className='size-6' src='/dots.svg' alt='' />
 								</MenubarTrigger>
-								<MenubarContent className='text-black'>
+								<MenubarContent className='text-white'>
 									<Dialog>
 										<DialogTrigger asChild>
 											<button className='px-2 py-1.5'>Delete</button>
