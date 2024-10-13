@@ -68,3 +68,35 @@ export const updateUserCoverPhoto = async (userID, formData) => {
     throw err;
   }
 };
+
+export const fetchUserGroups = async (userID) => {
+  try {
+    const { data } = await axios.get(`${BASE_API_URL}/group/${userID}`, {
+      headers: {
+        Authorization: localStorage.getItem("Token"),
+      },
+    });
+    return data.data;
+  } catch (err) {
+    console.error("Error getting groups", err);
+    throw err;
+  }
+};
+
+export const updateUserPassword = async (userID, formData) => {
+  try {
+    const { data } = await axios.put(
+      `${BASE_API_URL}/user/${userID}/password`,
+      formData,
+      {
+        headers: {
+          Authorization: localStorage.getItem("Token"),
+        },
+      }
+    );
+    return data;
+  } catch (err) {
+    console.error("Error updating password", err);
+    throw err;
+  }
+};

@@ -34,7 +34,7 @@ export default function Profile() {
 							Edit Profile
 						</NavLink>
 						<NavLink
-							to='/profile/changePassword'
+							to={`/profile/change/password/${currentUserID}`}
 							className={navlinkClassCallback}
 						>
 							Change Password

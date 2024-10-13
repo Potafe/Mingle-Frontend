@@ -22,8 +22,8 @@ export default function UserCard({
 	};
     
 	return (
-		<NavLink to={userID} className={navlinkClassCallback}>
-			<img className='size-10 rounded-full' src={profileURL} alt='profile' />
+		<NavLink to={`/chats/${userID}`} className={navlinkClassCallback}>			
+		<img className='size-10 rounded-full' src={profileURL} alt='profile' />
 			<div className='flex flex-col'>
 				<p>{_.startCase(`${firstname} ${lastname}`)}</p>
 				<p className='text-xs text-dark-500'>@{username}</p>

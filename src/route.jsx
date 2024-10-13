@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import NotFoundPage from './pages/NotFoundPage';
 import SignupPage from './pages/SignupPage';
@@ -12,7 +12,8 @@ import Logout from './pages/Logout';
 import Profile from './pages/Profile';
 import ProfileSection from './components/ProfileSection';
 import ProfileEditSection from './components/ProfileEditSection';
-import { ChangePasswordSection } from './components/ProfileSections';
+import { ChangePasswordSection } from './components/ChangePasswordSection';
+import CreateGroupSection from './components/CreateGroupSection';
 
 export default function Route() {
 	const route = createBrowserRouter([
@@ -25,6 +26,10 @@ export default function Route() {
 				</ProtectedRoute>
 			),
 			children: [
+				{
+					index: true,
+					element: <Navigate to='/chats' />,
+				},
 				{
 					path: '/chats',
 					element: <Chats />,
@@ -47,6 +52,10 @@ export default function Route() {
 							index: true,
 							element: <DefaultPage title='Groups' />,
 						},
+						{
+							path: '/groups/create',
+							element: <CreateGroupSection />,
+						},
 					],
 				},
 				{
@@ -64,6 +73,10 @@ export default function Route() {
 						{
 							path: '/profile/edit/:userID',
 							element: <ProfileEditSection />,
+						},
+						{
+							path: '/profile/change/password/:userID',
+							element: <ChangePasswordSection />,
 						},
 					],
 				},

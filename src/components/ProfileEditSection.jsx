@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { MainContentContainer } from './MainContent';
 import { fetchUserByID } from '@/api/users';
 import ProfileEditForm from './forms/ProfileEditForm';
+import LandingPage from '@/pages/LandingPage';
 
 export default function ProfileEditSection() {
 	const currentUserID = localStorage.getItem('UserID');
@@ -14,10 +15,11 @@ export default function ProfileEditSection() {
 		queryFn: () => fetchUserByID(currentUserID),
 	});
 	if (isLoading) {
-		return <p>Loading...</p>;
+		return <LandingPage title='Loading...' />;
 	}
+
 	if (error) {
-		return <p>Error fetching user</p>;
+		return <LandingPage title='Error fetching user' />;
 	}
 	return (
 		<MainContentContainer>
