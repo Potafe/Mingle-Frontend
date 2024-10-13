@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { UserCardLoading } from './LoadingScreens';
-import UserCard from './UserCard';
+import UserCard from './ProfileNavLink';
 
 export default function GroupsFeed({ groups, isLoading, error }) {
 	console.log(groups);

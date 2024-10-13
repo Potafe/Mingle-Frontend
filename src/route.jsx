@@ -7,13 +7,13 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Chats from './pages/Chats';
 import Groups from './pages/Groups';
 import DefaultPage from './pages/LandingPage';
-import ChatSection from './components/ChatSection';
+import ChatSection from './components/contents/ChatSection';
 import Logout from './pages/Logout';
 import Profile from './pages/Profile';
-import ProfileSection from './components/ProfileSection';
-import ProfileEditSection from './components/ProfileEditSection';
-import { ChangePasswordSection } from './components/ChangePasswordSection';
-import CreateGroupSection from './components/CreateGroupSection';
+import ProfileSection from './components/contents/ProfileSection';
+import ProfileEditSection from './components/contents/ProfileEditSection';
+import { ChangePasswordSection } from './components/contents/ChangePasswordSection';
+import CreateGroupSection from './components/contents/CreateGroupSection';
 
 export default function Route() {
 	const route = createBrowserRouter([

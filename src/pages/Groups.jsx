@@ -1,5 +1,5 @@
 import { fetchUserGroups } from '@/api/users';
-import GroupsFeed from '@/components/GroupsFeed';
+import UserFeed from '@/components/UserFeed';
 import {
 	SecondarySidebarAside,
 	SecondarySidebarAsideHeader,
@@ -44,9 +44,13 @@ export default function Groups() {
 				</SecondarySidebarAsideHeader>
 				{/* sidebar content */}
 
-				<GroupsFeed groups={userGroups} isLoading={isLoading} error={error} />
-			</SecondarySidebarAside>
-
+				<UserFeed
+					type='groups'
+					users={userGroups}
+					isLoading={isLoading}
+					error={error}
+				/>			
+				</SecondarySidebarAside>
 			{/* MAIN CONTENT */}
 			<Outlet />
 		</SecondarySidebarContainer>
