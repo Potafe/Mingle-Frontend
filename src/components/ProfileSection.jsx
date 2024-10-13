@@ -5,6 +5,8 @@ import { fetchUserByID } from '@/api/users';
 import _ from 'lodash';
 import { Button } from './ui/button';
 import CoverPhoto from './CoverPhoto';
+import LandingPage from '@/pages/LandingPage';
+
 
 export default function ProfileSection() {
 	const { userID } = useParams();
@@ -23,12 +25,11 @@ export default function ProfileSection() {
 
 	// Handle loading state
 	if (isLoading) {
-		return <p>Loading...</p>;
+		return <LandingPage title='Loading...' />;
 	}
 
-	// Handle error state
 	if (error) {
-		return <p>Error fetching user</p>;
+		return <LandingPage title='Error fetching user' />;
 	}
 
 	// Ensure userData, userData.cover, and userData.profile are defined
@@ -75,6 +76,8 @@ export default function ProfileSection() {
 					</Button>
 				)}
 			</div>
+			{/* User Friends */}
+			<div></div>
 		</MainContentContainer>
 	);
 }
