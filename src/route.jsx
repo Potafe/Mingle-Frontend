@@ -7,13 +7,14 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Chats from './pages/Chats';
 import Groups from './pages/Groups';
 import DefaultPage from './pages/LandingPage';
-import ChatSection from './components/contents/ChatSection';
 import Logout from './pages/Logout';
 import Profile from './pages/Profile';
 import ProfileSection from './components/contents/ProfileSection';
 import ProfileEditSection from './components/contents/ProfileEditSection';
 import { ChangePasswordSection } from './components/contents/ChangePasswordSection';
 import CreateGroupSection from './components/contents/CreateGroupSection';
+import UserChat from './components/UserChat';
+import GroupChat from './components/GroupChat';
 
 export default function Route() {
 	const route = createBrowserRouter([
@@ -40,7 +41,7 @@ export default function Route() {
 						},
 						{
 							path: '/chats/:friendID',
-							element: <ChatSection />,
+							element: <UserChat />,
 						},
 					],
 				},
@@ -55,6 +56,10 @@ export default function Route() {
 						{
 							path: '/groups/create',
 							element: <CreateGroupSection />,
+						},
+						{
+							path: '/groups/chats/:groupID',
+							element: <GroupChat />,
 						},
 					],
 				},

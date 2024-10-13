@@ -7,11 +7,6 @@ export default function PrimarySidebar() {
 		<PrimarySidebarContainer>
 			<div>
 				<PrimarySidebarNav
-					linkTo='/global'
-					icon='/global.svg'
-					title='Global'
-				/>
-				<PrimarySidebarNav
 					linkTo='/chats'
 					icon='/chat.svg'
 					title='Chats'

@@ -32,7 +32,7 @@ export default function Groups() {
 					</SecondarySidebarAsideHeaderText>
 					<Link
 						className='transition hover:bg-dark-300 rounded-full p-1'
-						to={createMode ? '/groups' : '/groups/create'}
+						to={createMode ? -1 : '/groups/create'}
 						onClick={() => setCreateMode(!createMode)}
 					>
 						<img
@@ -45,7 +45,7 @@ export default function Groups() {
 				{/* sidebar content */}
 
 				<UserFeed
-					type='groups'
+					type='groups/chats'
 					users={userGroups}
 					isLoading={isLoading}
 					error={error}
