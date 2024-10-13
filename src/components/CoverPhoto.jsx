@@ -43,7 +43,7 @@ export default function CoverPhoto({ imageURL, userID, refetch }) {
 	return (
 		<div className='relative'>
 			<img
-				className='w-full h-[15.5rem] object-cover object-center rounded-md'
+				className='w-full h-[16 rem] object-cover object-center rounded-md'
 				src={imageURL}
 				alt='Cover Photo'
 			/>
