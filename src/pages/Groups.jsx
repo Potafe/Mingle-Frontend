@@ -42,7 +42,7 @@ export default function Groups() {
 						/>
 					</Link>
 				</SecondarySidebarAsideHeader>
-				{/*Sidebar Content */}
+				{/* sidebar content */}
 
 				<GroupsFeed groups={userGroups} isLoading={isLoading} error={error} />
 			</SecondarySidebarAside>

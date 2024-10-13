@@ -6,6 +6,7 @@ import LandingPage from '@/pages/LandingPage';
 
 export default function ProfileEditSection() {
 	const currentUserID = localStorage.getItem('UserID');
+
 	const {
 		data: userData,
 		isLoading,
@@ -14,6 +15,7 @@ export default function ProfileEditSection() {
 		queryKey: [`user_${currentUserID}`],
 		queryFn: () => fetchUserByID(currentUserID),
 	});
+
 	if (isLoading) {
 		return <LandingPage title='Loading...' />;
 	}
@@ -21,6 +23,7 @@ export default function ProfileEditSection() {
 	if (error) {
 		return <LandingPage title='Error fetching user' />;
 	}
+
 	return (
 		<MainContentContainer>
 			<ProfileEditForm userData={userData} />

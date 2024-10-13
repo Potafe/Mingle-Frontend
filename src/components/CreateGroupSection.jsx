@@ -2,7 +2,7 @@ import { fetchUserByID } from '@/api/users';
 import { MainContentContainer } from './MainContent';
 import CreateGroupForm from './forms/CreateGroupForm';
 import { useQuery } from '@tanstack/react-query';
-import DefaultPage from '@/pages/LandingPage';
+import LandingPage from '@/pages/LandingPage';
 
 export default function CreateGroupSection() {
 	const userID = localStorage.getItem('UserID');
@@ -15,10 +15,10 @@ export default function CreateGroupSection() {
 		queryFn: () => fetchUserByID(userID),
 	});
 	if (isLoading) {
-		return <DefaultPage title='Loading...' />;
+		return <LandingPage title='Loading...' />;
 	}
 	if (error) {
-		return <DefaultPage title='Error fetching user' />;
+		return <LandingPage title='Error fetching user' />;
 	}
 	return (
 		<MainContentContainer>

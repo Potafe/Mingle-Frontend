@@ -52,7 +52,7 @@ export default function CoverPhoto({ imageURL, userID, refetch }) {
 					<label className={isLoading ? 'opacity-70' : ''} htmlFor='coverPhoto'>
 						<img
 							className='size-5 cursor-pointer'
-							src='/icons/camera.svg'
+							src='/camera.svg'
 							alt=''
 						/>
 					</label>
