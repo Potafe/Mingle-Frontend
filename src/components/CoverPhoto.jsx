@@ -40,10 +40,11 @@ export default function CoverPhoto({ imageURL, userID, refetch }) {
 			setIsLoading(false);
 		}
 	};
+
 	return (
 		<div className='relative'>
 			<img
-				className='w-full h-[16 rem] object-cover object-center rounded-md'
+				className='w-full h-48 object-cover object-center rounded-md' // Adjust height to 48 (or your desired value)
 				src={imageURL}
 				alt='Cover Photo'
 			/>
