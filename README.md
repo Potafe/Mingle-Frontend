@@ -20,8 +20,8 @@ Mingle is a social networking platform designed to connect users, allowing them 
 
 Here are some screenshots of the application:
 
-![Home Page](Samples\First_Page.png)
-![Profile Management](Samples\profile_2.png)
+![Home Page](/Samples/First_Page.png)
+![Profile Management](/Samples/profile_2.png)
 ![Group Management](/Samples/group.png)
 
 ## Live Demo
